@@ -31,7 +31,6 @@ import (
 	ma "github.com/multiformats/go-multiaddr"
 	madns "github.com/multiformats/go-multiaddr-dns"
 	manet "github.com/multiformats/go-multiaddr/net"
-	"go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp"
 	"go.opentelemetry.io/otel"
 	"go.opentelemetry.io/otel/attribute"
 	"go.opentelemetry.io/otel/codes"
@@ -317,11 +316,12 @@ func makeExecutor(req *cmds.Request, env interface{}) (cmds.Executor, error) {
 	default:
 		return nil, fmt.Errorf("unsupported API address: %s", apiAddr)
 	}
-	opts = append(opts, cmdhttp.ClientWithHTTPClient(&http.Client{
+	_ = tpt
+	/*opts = append(opts, cmdhttp.ClientWithHTTPClient(&http.Client{
 		Transport: otelhttp.NewTransport(tpt,
-			otelhttp.WithPropagators(tracing.Propagator()),
+			otelhttp.WithPropagators(tracing.NewTracerProvider(context.TODO())),
 		),
-	}))
+	}))*/
 
 	return tracingWrappedExecutor{cmdhttp.NewClient(host, opts...)}, nil
 }
