@@ -22,10 +22,10 @@ import (
 	"github.com/ipfs/kubo/repo/fsrepo"
 	"github.com/ipfs/kubo/tracing"
 
+	u "github.com/ipfs/boxo/util"
 	cmds "github.com/ipfs/go-ipfs-cmds"
 	"github.com/ipfs/go-ipfs-cmds/cli"
 	cmdhttp "github.com/ipfs/go-ipfs-cmds/http"
-	u "github.com/ipfs/go-ipfs-util"
 	logging "github.com/ipfs/go-log"
 	ma "github.com/multiformats/go-multiaddr"
 	madns "github.com/multiformats/go-multiaddr-dns"

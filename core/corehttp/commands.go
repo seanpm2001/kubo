@@ -14,9 +14,9 @@ import (
 	"github.com/ipfs/kubo/core"
 	corecommands "github.com/ipfs/kubo/core/commands"
 
+	path "github.com/ipfs/boxo/path"
 	cmds "github.com/ipfs/go-ipfs-cmds"
 	cmdsHttp "github.com/ipfs/go-ipfs-cmds/http"
-	path "github.com/ipfs/go-path"
 	config "github.com/ipfs/kubo/config"
 )
 

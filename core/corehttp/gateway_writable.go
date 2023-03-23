@@ -7,15 +7,15 @@ import (
 	"os"
 	gopath "path"
 
+	iface "github.com/ipfs/boxo/coreiface"
+	"github.com/ipfs/boxo/files"
+	"github.com/ipfs/boxo/gateway"
+	dag "github.com/ipfs/boxo/ipld/merkledag"
+	"github.com/ipfs/boxo/mfs"
+	path "github.com/ipfs/boxo/path"
+	"github.com/ipfs/boxo/path/resolver"
 	cid "github.com/ipfs/go-cid"
 	ipld "github.com/ipfs/go-ipld-format"
-	"github.com/ipfs/go-libipfs/files"
-	"github.com/ipfs/go-libipfs/gateway"
-	dag "github.com/ipfs/go-merkledag"
-	"github.com/ipfs/go-mfs"
-	path "github.com/ipfs/go-path"
-	"github.com/ipfs/go-path/resolver"
-	iface "github.com/ipfs/interface-go-ipfs-core"
 	routing "github.com/libp2p/go-libp2p/core/routing"
 )
 
