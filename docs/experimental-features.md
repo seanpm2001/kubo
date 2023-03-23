@@ -24,7 +24,6 @@ the above issue.
 - [IPNS PubSub](#ipns-pubsub)
 - [AutoRelay](#autorelay)
 - [Strategic Providing](#strategic-providing)
-- [Graphsync](#graphsync)
 - [Noise](#noise)
 - [Accelerated DHT Client](#accelerated-dht-client)
 
@@ -512,30 +511,6 @@ ipfs config --json Experimental.StrategicProviding true
     - [ ] provide roots
     - [ ] provide all
     - [ ] provide strategic
-    
-## GraphSync
-
-### State
-
-Experimental, disabled by default.
-
-[GraphSync](https://github.com/ipfs/go-graphsync) is the next-gen graph exchange
-protocol for IPFS.
-
-When this feature is enabled, IPFS will make files available over the graphsync
-protocol. However, IPFS will not currently use this protocol to _fetch_ files.
-
-### How to enable
-
-Modify your ipfs config:
-
-```
-ipfs config --json Experimental.GraphsyncEnabled true
-```
-
-### Road to being a real feature
-
-- [ ] We need to confirm that it can't be used to DoS a node. The server-side logic for GraphSync is quite complex and, if we're not careful, the server might end up performing unbounded work when responding to a malicious request.
 
 ## Noise
 

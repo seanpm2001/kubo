@@ -22,7 +22,6 @@ import (
 	"github.com/ipfs/boxo/fetcher"
 	mfs "github.com/ipfs/boxo/mfs"
 	provider "github.com/ipfs/boxo/provider"
-	"github.com/ipfs/go-graphsync"
 	ipld "github.com/ipfs/go-ipld-format"
 	logging "github.com/ipfs/go-log"
 	goprocess "github.com/jbenet/goprocess"
@@ -97,7 +96,6 @@ type IpfsNode struct {
 	Namesys         namesys.NameSystem         // the name system, resolves paths to hashes
 	Provider        provider.System            // the value provider system
 	IpnsRepub       *ipnsrp.Republisher        `optional:"true"`
-	GraphExchange   graphsync.GraphExchange    `optional:"true"`
 	ResourceManager network.ResourceManager    `optional:"true"`
 
 	PubSub   *pubsub.PubSub             `optional:"true"`
