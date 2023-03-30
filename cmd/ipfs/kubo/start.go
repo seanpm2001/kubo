@@ -5,6 +5,7 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	u "github.com/ipfs/go-ipfs-util"
 	"math/rand"
 	"net"
 	"net/http"
@@ -14,7 +15,6 @@ import (
 	"time"
 
 	"github.com/google/uuid"
-	u "github.com/ipfs/boxo/util"
 	cmds "github.com/ipfs/go-ipfs-cmds"
 	"github.com/ipfs/go-ipfs-cmds/cli"
 	cmdhttp "github.com/ipfs/go-ipfs-cmds/http"
