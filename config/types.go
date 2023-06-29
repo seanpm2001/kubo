@@ -415,9 +415,9 @@ func (p OptionalString) String() string {
 var _ json.Unmarshaler = (*OptionalInteger)(nil)
 var _ json.Marshaler = (*OptionalInteger)(nil)
 
-type swarmLimits struct{}
+type swarmLimits doNotUse
 
-var _ json.Unmarshaler = swarmLimits{}
+var _ json.Unmarshaler = swarmLimits(false)
 
 func (swarmLimits) UnmarshalJSON(b []byte) error {
 	d := json.NewDecoder(bytes.NewReader(b))
@@ -438,3 +438,32 @@ func (swarmLimits) UnmarshalJSON(b []byte) error {
 		}
 	}
 }
+
+type experimentalAcceleratedDHTClient doNotUse
+
+var _ json.Unmarshaler = experimentalAcceleratedDHTClient(false)
+
+func (experimentalAcceleratedDHTClient) UnmarshalJSON(b []byte) error {
+	d := json.NewDecoder(bytes.NewReader(b))
+	for {
+		switch tok, err := d.Token(); err {
+		case io.EOF:
+			return nil
+		case nil:
+			switch tok {
+			case json.Delim('{'), json.Delim('}'):
+				// accept empty objects
+				continue
+			}
+			//nolint
+			return fmt.Errorf("The Experimental.AcceleratedDHTClient key has been moved to Routing.AcceleratedDHTClient in Kubo 0.21, please use this new key and remove the old one.")
+		default:
+			return err
+		}
+	}
+}
+
+// doNotUse is a type you must not use, it should be struct{} but encoding/json
+// does not support omitempty on structs and I can't be bothered to write custom
+// marshalers on all structs that have a doNotUse field.
+type doNotUse bool

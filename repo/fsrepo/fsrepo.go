@@ -11,17 +11,17 @@ import (
 	"strings"
 	"sync"
 
-	filestore "github.com/ipfs/go-filestore"
-	keystore "github.com/ipfs/go-ipfs-keystore"
+	filestore "github.com/ipfs/boxo/filestore"
+	keystore "github.com/ipfs/boxo/keystore"
 	repo "github.com/ipfs/kubo/repo"
 	"github.com/ipfs/kubo/repo/common"
 	dir "github.com/ipfs/kubo/thirdparty/dir"
 	rcmgr "github.com/libp2p/go-libp2p/p2p/host/resource-manager"
 
+	util "github.com/ipfs/boxo/util"
 	ds "github.com/ipfs/go-datastore"
 	measure "github.com/ipfs/go-ds-measure"
 	lockfile "github.com/ipfs/go-fs-lock"
-	util "github.com/ipfs/go-ipfs-util"
 	logging "github.com/ipfs/go-log"
 	config "github.com/ipfs/kubo/config"
 	serialize "github.com/ipfs/kubo/config/serialize"
@@ -37,7 +37,7 @@ const LockFile = "repo.lock"
 var log = logging.Logger("fsrepo")
 
 // RepoVersion is the version number that we are currently expecting to see
-var RepoVersion = 13
+var RepoVersion = 14
 
 var migrationInstructions = `See https://github.com/ipfs/fs-repo-migrations/blob/master/run.md
 Sorry for the inconvenience. In the future, these will run automatically.`

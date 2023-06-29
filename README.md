@@ -3,7 +3,6 @@
 
 [![](https://img.shields.io/badge/made%20by-Protocol%20Labs-blue.svg?style=flat-square&cacheSeconds=3600)](https://protocol.ai)
 [![GoDoc](https://img.shields.io/badge/godoc-reference-5272B4.svg?style=flat-square&cacheSeconds=3600)](https://godoc.org/github.com/ipfs/kubo)
-[![CircleCI](https://img.shields.io/circleci/build/github/ipfs/kubo?style=flat-square&cacheSeconds=3600)](https://circleci.com/gh/ipfs/kubo)
 
 ## What is Kubo?
 
@@ -33,7 +32,7 @@ Before opening an issue, consider using one of the following locations to ensure
   - Exploration of new ideas in [ipfs/notes issues](https://github.com/ipfs/notes/issues).
   - Ask questions and meet the rest of the community at the [IPFS Forum](https://discuss.ipfs.tech).
   - Or [chat with us](https://docs.ipfs.tech/community/chat/).
- 
+
 [![YouTube Channel Subscribers](https://img.shields.io/youtube/channel/subscribers/UCdjsUXJ3QawK4O5L1kqqsew?label=Subscribe%20IPFS&style=social&cacheSeconds=3600)](https://www.youtube.com/channel/UCdjsUXJ3QawK4O5L1kqqsew) [![Follow @IPFS on Twitter](https://img.shields.io/twitter/follow/IPFS?style=social&cacheSeconds=3600)](https://twitter.com/IPFS)
 
 ## Next milestones
@@ -68,7 +67,7 @@ Before opening an issue, consider using one of the following locations to ensure
   - [Unofficial MacOS packages](#unofficial-macos-packages)
     - [MacPorts](#macports)
     - [Nix](#nix-macos)
-    - [Homebrew](#homebrew)  
+    - [Homebrew](#homebrew)
   - [Build from Source](#build-from-source)
     - [Install Go](#install-go)
     - [Download and Compile IPFS](#download-and-compile-ipfs)
@@ -188,10 +187,10 @@ $ ipfs get /ipns/dist.ipfs.tech/kubo/$VERSION/kubo_$VERSION_windows-amd64.zip   
 With the purely functional package manager [Nix](https://nixos.org/nix/) you can install kubo (go-ipfs) like this:
 
 ```
-$ nix-env -i ipfs
+$ nix-env -i kubo
 ```
 
-You can also install the Package by using its attribute name, which is also `ipfs`.
+You can also install the Package by using its attribute name, which is also `kubo`.
 
 #### Solus
 
@@ -252,10 +251,10 @@ $ sudo port install ipfs
 In macOS you can use the purely functional package manager [Nix](https://nixos.org/nix/):
 
 ```
-$ nix-env -i ipfs
+$ nix-env -i kubo
 ```
 
-You can also install the Package by using its attribute name, which is also `ipfs`.
+You can also install the Package by using its attribute name, which is also `kubo`.
 
 #### Homebrew
 

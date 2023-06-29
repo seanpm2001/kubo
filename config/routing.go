@@ -15,6 +15,8 @@ type Routing struct {
 	// When "custom" is set, user-provided Routing.Routers is used.
 	Type *OptionalString `json:",omitempty"`
 
+	AcceleratedDHTClient bool
+
 	Routers Routers
 
 	Methods Methods
@@ -26,7 +28,7 @@ type Router struct {
 	Type RouterType
 
 	// Parameters are extra configuration that this router might need.
-	// A common one for reframe router is "Endpoint".
+	// A common one for HTTP router is "Endpoint".
 	Parameters interface{}
 }
 
@@ -79,8 +81,6 @@ func (r *RouterParser) UnmarshalJSON(b []byte) error {
 	switch out.Type {
 	case RouterTypeHTTP:
 		p = &HTTPRouterParams{}
-	case RouterTypeReframe:
-		p = &ReframeRouterParams{}
 	case RouterTypeDHT:
 		p = &DHTRouterParams{}
 	case RouterTypeSequential:
@@ -104,7 +104,6 @@ func (r *RouterParser) UnmarshalJSON(b []byte) error {
 type RouterType string
 
 const (
-	RouterTypeReframe    RouterType = "reframe"    // More info here: https://github.com/ipfs/specs/tree/main/reframe . Actually deprecated.
 	RouterTypeHTTP       RouterType = "http"       // HTTP JSON API for delegated routing systems (IPIP-337).
 	RouterTypeDHT        RouterType = "dht"        // DHT router.
 	RouterTypeSequential RouterType = "sequential" // Router helper to execute several routers sequentially.
@@ -130,12 +129,6 @@ const (
 )
 
 var MethodNameList = []MethodName{MethodNameProvide, MethodNameFindPeers, MethodNameFindProviders, MethodNameGetIPNS, MethodNamePutIPNS}
-
-type ReframeRouterParams struct {
-	// Endpoint is the URL where the routing implementation will point to get the information.
-	// Usually used for reframe Routers.
-	Endpoint string
-}
 
 type HTTPRouterParams struct {
 	// Endpoint is the URL where the routing implementation will point to get the information.

@@ -7,7 +7,7 @@ import (
 	"io"
 	"time"
 
-	"github.com/ipfs/interface-go-ipfs-core/options"
+	"github.com/ipfs/boxo/coreiface/options"
 	"github.com/libp2p/go-libp2p/core/crypto"
 	"github.com/libp2p/go-libp2p/core/peer"
 )
@@ -67,12 +67,8 @@ func InitWithIdentity(identity Identity) (*Config, error) {
 			RootRedirect: "",
 			NoFetch:      false,
 			PathPrefixes: []string{},
-			HTTPHeaders: map[string][]string{
-				"Access-Control-Allow-Origin":  {"*"},
-				"Access-Control-Allow-Methods": {"GET"},
-				"Access-Control-Allow-Headers": {"X-Requested-With", "Range", "User-Agent"},
-			},
-			APICommands: []string{},
+			HTTPHeaders:  map[string][]string{},
+			APICommands:  []string{},
 		},
 		Reprovider: Reprovider{
 			Interval: nil,
